@@ -24,11 +24,10 @@
 
 var iotdb = require('iotdb');
 var _ = iotdb._;
-var bunyan = iotdb.bunyan;
 
 var squeezenode = require('squeezenode');
 
-var logger = bunyan.createLogger({
+var logger = iotdb.logger({
     name: 'homestar-squeezebox',
     module: 'SqueezeboxBridge',
 });
@@ -229,15 +228,22 @@ SqueezeboxBridge.prototype.configure = function (app) {};
 
 /* -- internals -- */
 var __singleton;
+var __pendings;
 
 /**
  *  If you need a singleton to access the library
  */
-SqueezeboxBridge.prototype._squeezenode = function () {
+SqueezeboxBridge.prototype._squeezenode = function (callback) {
     var self = this;
 
+    if (__pendings !== undefined) {
+        __pendings.push(callback);
+        return;
+    }
+
     if (!__singleton) {
-        __singleton = squeezenode.init();
+        return callback(null, __singleton);
+    } else {
     }
 
     return __singleton;

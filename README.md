@@ -1,4 +1,4 @@
 # homestar-squeezebox
-IOTDB / HomeStar Module for Logitech Squeezebox
+[IOTDB](https://github.com/dpjanes/node-iotdb) Bridge for Logitech Squeezebox
 
-THIS IS NOT READY
+STUB - if you one, let me know!

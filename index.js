@@ -26,3 +26,5 @@ exports.Bridge = require('./SqueezeboxBridge').Bridge;
 exports.bindings = [
     require('./models/Squeezebox').binding,
 ];
+
+exports.module_folder = __dirname;

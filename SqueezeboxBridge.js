@@ -55,10 +55,6 @@ var SqueezeboxBridge = function (initd, native) {
 
 SqueezeboxBridge.prototype = new iotdb.Bridge();
 
-SqueezeboxBridge.prototype.name = function () {
-    return "SqueezeboxBridge";
-};
-
 /* --- lifecycle --- */
 
 /**
